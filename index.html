@@ -112,21 +112,26 @@
     }
 
     function enviarImagen() {
-      // Recoger los datos ingresados por el usuario
+      // Recoger metadatos de los formularios
       const profesion = document.getElementById('profesion').value;
       const nivel = document.getElementById('nivel').value;
       const comentarios = document.getElementById('comentarios').value;
 
-      // Crear un nombre de imagen único basado en el timestamp
+      // Crear nombre de la imagen basado en el timestamp para que sea único
       const timestamp = Date.now();
       const nombreImagen = `log_sondaje_${timestamp}.png`;
 
-      // Convertir el contenido del canvas a una imagen en formato Base64
+      // Convertir el canvas a imagen en formato data URL
       const imageData = canvas.toDataURL('image/png');
 
-      // Pseudocódigo para guardar la imagen en OneDrive y registrar los datos en Excel:
+      // Aquí se debería implementar la lógica para guardar la imagen en OneDrive
+      // y registrar los datos (nombre de imagen, profesión, nivel y comentarios)
+      // en un archivo Excel. Esto requerirá una integración con una API o backend que
+      // conecte con Microsoft Graph API para OneDrive y Excel.
+      //
+      // Ejemplo de pseudocódigo para la integración:
       /*
-      fetch('https://tu-backend-api.com/guardar-imagen', {
+      fetch('https://tu-backend-api.com/upload', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -144,14 +149,15 @@
         alert("¡Gracias por participar! Tu imagen ha sido guardada correctamente.");
       })
       .catch(error => {
-        console.error("Error al guardar:", error);
-        alert("Error al guardar tu imagen, por favor intenta nuevamente.");
+        console.error('Error:', error);
+        alert("Hubo un error al guardar tu imagen.");
       });
       */
 
-      // Por el momento, muestra un mensaje de confirmación.
+      // Por el momento, mostramos un mensaje de confirmación.
       alert("¡Gracias por participar! Se ha enviado tu imagen (función de guardado pendiente).");
     }
   </script>
 </body>
 </html>
+
